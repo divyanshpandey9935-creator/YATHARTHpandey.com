@@ -75,7 +75,7 @@ export default function Hero() {
             Free Consultation
           </a>
           <a
-            href="https://wa.me/8858971111"
+            href="https://wa.me/918858971111"
             target="_blank"
             rel="noreferrer"
             className="px-8 py-3 rounded-full font-bold border border-white/30 backdrop-blur-sm flex items-center gap-2  transition-all hover:scale-105 active:scale-95 text-white"

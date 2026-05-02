@@ -60,6 +60,7 @@ const awards = [
     badge: 'Corporate Meet',
     title: 'Team Recognition Moment',
     year: 'LIC Corporate Event',
+    imageFit: 'full',
   },
   {
     image: '/image/awards/corporate-meet-bouquet.jpg',
@@ -218,7 +219,11 @@ export default function Awards() {
               <img
                 src={a.image}
                 alt={a.title}
-                className="w-full aspect-[4/3] object-cover rounded-[18px_18px_0_0]"
+                className={`w-full rounded-[18px_18px_0_0] ${
+                  a.imageFit === 'full'
+                    ? 'aspect-[3/4] object-contain bg-white/70'
+                    : 'aspect-[4/3] object-cover'
+                }`}
               />
               <div className="p-4">
                 <span className="gold-badge mb-2 block w-fit">{a.badge}</span>

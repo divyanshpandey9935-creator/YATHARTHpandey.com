@@ -1,7 +1,7 @@
 const quickLinks = ['Home', 'Services', 'Awards', 'About', 'Contact']
 
 const contactDetails = [
-  { icon: '📞', label: 'Phone', value: '+91 99999 99999', href: 'tel:+919999999999' },
+  { icon: '📞', label: 'Phone', value: '+91 88589 71111', href: 'tel:+91 88589 71111' },
   { icon: '📍', label: 'Office', value: 'LIC Branch, Unnao, Uttar Pradesh', href: 'https://maps.google.com' },
   { icon: '🕐', label: 'Hours', value: 'Mon–Sat: 9:00 AM – 7:00 PM', href: null },
 ]
