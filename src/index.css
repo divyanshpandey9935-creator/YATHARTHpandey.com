@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 35%, #eaf0fa 65%, #f5f2ff 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 700px 500px at 10% 15%, rgba(0,100,255,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 400px at 88% 72%, rgba(212,175,55,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 350px at 50% 45%, rgba(100,180,255,0.04) 0%, transparent 70%);
+  }
+}
+
+@layer components {
+  /* ── Glass card ── */
+  .glass-card {
+    background: rgba(255,255,255,0.52);
+    backdrop-filter: blur(20px) saturate(1.9);
+    -webkit-backdrop-filter: blur(20px) saturate(1.9);
+    border: 1px solid rgba(255,255,255,0.78);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,35,102,0.08), inset 0 1px 0 rgba(255,255,255,0.88);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 44px rgba(0,35,102,0.13), inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+
+  /* ── Hero card (slightly more opaque) ── */
+  .hero-glass {
+    background: rgba(235,245,255,0.72);
+    backdrop-filter: blur(32px) saturate(2);
+    -webkit-backdrop-filter: blur(32px) saturate(2);
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 28px;
+    box-shadow: 0 24px 64px rgba(0,35,102,0.16), inset 0 1px 0 rgba(255,255,255,0.92);
+  }
+
+  /* ── Navbar glass ── */
+  .nav-glass {
+    background: rgba(0,35,102,0.82);
+    backdrop-filter: blur(24px) saturate(1.8);
+    -webkit-backdrop-filter: blur(24px) saturate(1.8);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ── Btn primary ── */
+  .btn-primary {
+    background: linear-gradient(135deg, #002366, #003399);
+    color: white;
+    font-weight: 700;
+    padding: 12px 26px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 8px 22px rgba(0,35,102,0.28), inset 0 1px 0 rgba(255,255,255,0.14);
+    transition: all 0.22s ease;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(0,35,102,0.36);
+  }
+
+  /* ── Btn glass ── */
+  .btn-glass {
+    background: rgba(255,255,255,0.48);
+    backdrop-filter: blur(12px);
+    color: #002366;
+    font-weight: 700;
+    padding: 11px 26px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(0,35,102,0.22);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.22s ease;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+  .btn-glass:hover {
+    background: rgba(255,255,255,0.68);
+    transform: translateY(-2px);
+  }
+
+  /* ── Gold badge ── */
+  .gold-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #D4AF37, #f0d060);
+    color: #002366;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  /* ── Section header ── */
+  .section-eyebrow {
+    display: inline-block;
+    background: rgba(212,175,55,0.15);
+    color: #b8960a;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(212,175,55,0.28);
+  }
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.animate-fade-up { animation: fadeUp 0.85s ease both; }
+.animate-pulse-dot { animation: pulse 2s infinite; }
+
+/* ── Floating WhatsApp ── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 36px rgba(37,211,102,0.52);
+}
